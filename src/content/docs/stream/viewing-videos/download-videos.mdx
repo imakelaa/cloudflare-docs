@@ -5,16 +5,18 @@ sidebar:
   order: 6
 ---
 
-When you upload a video to Stream, it can be streamed using HLS/DASH. However, for use certain use-cases, you may want to download the MP4 or M4A file. 
+When you upload a video to Stream, it can be streamed using HLS/DASH. However, for certain use-cases, you may want to download the MP4 or M4A file. 
 For cases such as offline viewing, you may want to download the MP4 file. Whereas, for downstream tasks like AI summarization, if you want to extract only the audio, downloading an M4A file may be more useful.
 
 ## Generate downloadable MP4 files
 
-> NOTE: The `/downloads` endpoint defaults to creating an MP4 download.
+:::note
+The `/downloads` endpoint defaults to creating an MP4 download.
+:::
 
 You can enable MP4 support on a per video basis by following the steps below:
 
-1. Enable MP4 support by making a POST request to the `/downloads` or `/downloads/default` endpoint
+1. Enable MP4 support by making a POST request to the `/downloads` or `/downloads/default` endpoint.
 2. Save the MP4 URL provided by the response to the endpoint. This MP4 URL will become functional when the MP4 is ready in the next step.
 3. Poll the `/downloads` endpoint until the `status` field is set to `ready` to inform you when the MP4 is available. You can now use the MP4 URL from step 2.
 
@@ -24,7 +26,7 @@ To get notified when a video is ready to view, refer to [Using webhooks](/stream
 
 ## Generate downloadable M4A files
 
-To enable M4A support on a per video basis, we follow steps similar to that of generating an MP4 download, but instead send a POST request to the `/downloads/audio` endpoint.
+To enable M4A support on a per video basis, follow steps similar to that of generating an MP4 download, but instead send a POST request to the `/downloads/audio` endpoint.
 
 ## Examples
 
